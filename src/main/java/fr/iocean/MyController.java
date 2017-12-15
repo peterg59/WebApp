@@ -18,8 +18,15 @@ public class MyController {
 		return "Hello world";
 	}
 	
+	@RequestMapping(value = "/api/users", method = RequestMethod.GET)
+	public String displayUser() {
+		return new User().toString();
+	}
+	
 	@RequestMapping(value = "/images/search/{year}/{month}/{day}", method = RequestMethod.GET)
-	public String date(@PathVariable("year") int y, @PathVariable("month") int m, @PathVariable("day") int d, @RequestParam("sort") String name) throws ParseException {
+	public String date(@PathVariable("year") int y, @PathVariable("month") int m, 
+			@PathVariable("day") int d, @RequestParam("sort") String name) throws ParseException {
+		
 		String date = d + "/" + m + "/" + y;
 		
 		Date sdf = new SimpleDateFormat("dd/mm/yyyy").parse(date);
