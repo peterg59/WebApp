@@ -1,29 +1,44 @@
-package fr.iocean;
+package fr.iocean.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import fr.iocean.validator.Isbn;
+
+@Entity
+@Table(name = "book")
 public class Book {
-
-	private int id;
-	private String title, author;
 	
-	@Isbn
-	private String isbn;
+	@Id
+	private Integer id;
+	
+	@Column(name = "nb_pages")
+	private Integer nbrPages;
+	
+	@Column(name = "publication_date")
+	@Temporal(TemporalType.DATE)
+	private Date date;
+	
+	@NotBlank
+	private String title, author;
 
 	public Book() {
 	}
 
-	public Book(int id, String title, String author, String isbn) {
+	public Book(int id, String title, String author, int nbrPages) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
-		this.isbn = isbn;
-	}
-	
-	public String getIsbn() {
-		return isbn;
-	}
-	
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
+		this.nbrPages = nbrPages;
 	}
 	
 	public int getId() {
@@ -48,6 +63,14 @@ public class Book {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+	
+	public Integer getNbrPages() {
+		return nbrPages;
+	}
+	
+	public void setNbrPages(Integer nbrPages) {
+		this.nbrPages = nbrPages;
 	}
 	
 	@Override

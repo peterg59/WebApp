@@ -1,18 +1,17 @@
-package fr.iocean;
+package fr.iocean.model;
 
 import java.util.*;
 
 public class Library {
-
 	private static List<Book> books;
 	private static Library library = new Library();
 
 	private Library() {
 		books = new ArrayList<>();
-		Book book1 = new Book(1,"tit", "pat", "fjhgbserugbzreuyghzerguioyhze");
-		Book book2 = new Book(2,"tot", "rgeruhg", "ergiouehuioghzeiughz");
+/*		Book book1 = new Book(1, "tit", "pat", "fjhgbserugbzreuyghzerguioyhze");
+		Book book2 = new Book(2, "tot", "rgeruhg", "ergiouehuioghzeiughz");
 		books.add(book1);
-		books.add(book2);
+		books.add(book2);*/
 	}
 
 	public static Library getInstance() {
@@ -41,8 +40,8 @@ public class Library {
 	}
 
 	public Book get(int id) {
-		for(Book b : books) {
-			if(b.getId() == id) {
+		for (Book b : books) {
+			if (b.getId() == id) {
 				return b;
 			}
 		}

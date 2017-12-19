@@ -1,4 +1,4 @@
-package fr.iocean;
+package fr.iocean.validator;
 
 
 import javax.validation.*;
